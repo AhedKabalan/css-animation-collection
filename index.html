@@ -1,0 +1,58 @@
+<style type="text/css">
+	.list{
+		border: 1px solid #A6AEB7;
+		padding: 10px;
+		width: 20%;
+	}
+	.list-wrap{
+		border: 1px solid #A6AEB7;
+		overflow: hidden;
+		margin: 20px;
+	}
+	.list-item{
+		padding: 10px;
+		height: 20px;
+		transition: all 1.3s cubic-bezier(0.65, 0, 0.35, 1);
+		border-radius: 10px;
+	}
+	.list-item:not(:last-child){
+		margin-bottom: 20px;
+	}
+	.red{
+		background: red;
+	}
+	.green{
+		background: green;
+	}
+	.gray{
+		background: gray;
+	}
+	.transform{
+		-ms-transform: translate(0, 250px) rotate(20deg);
+		-webkit-transform: translate(0, 250px) rotate(20deg);
+		transform: translate(0, 250px) rotate(20deg);
+		transform-origin: top left;
+	}
+</style>
+
+<body>
+
+	<div class="list">
+		<div class="list-wrap">
+			<div class="list-item red"></div>
+			<div class="list-item green"></div>
+			<div class="list-item gray"></div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		$.each($(".list-item").get().reverse(), function(index, element){
+			$(element).delay(100*index).queue(function(next) {
+			  $(element).toggleClass("transform");
+			  next();
+			});
+		});
+	</script>
+
+</body>
