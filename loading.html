@@ -1,0 +1,196 @@
+<style type="text/css">
+	.loading-wrap{
+		overflow: hidden;
+		position: relative;
+		width: 30%;
+		height: 15vh;
+	}
+	.dot, .dot-2, .dot-3, .dot-4, .dot-5{
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		background: #000;
+		display: inline-block;
+		color: #FFF;
+		background: #FFF;
+	}
+	.dots-wrap{
+		position: absolute;
+		top: 30px;
+		left: 80px;
+		padding: 10px 30px;
+		background: #6358F8;
+		border-radius: 50px;
+	}
+	.move {
+	  animation: mymove 1.4s infinite linear;
+	}
+
+	@keyframes mymove {
+	  0%, 50%, 100% {
+		-ms-transform: translateY(0);
+		-webkit-transform: translateY(0px);
+		transform: translateY(0px);
+      }
+      15% {
+        -ms-transform: translateY(-5px);
+		-webkit-transform: translateY(-5px);
+		transform: translateY(-5px);
+      }
+      35% {
+        -ms-transform: translateY(5px);
+		-webkit-transform: translateY(5px);
+		transform: translateY(5px);
+      }
+	}
+
+	.move2 {
+	  animation: mymove2 1.4s infinite linear;
+	}
+
+	@keyframes mymove2 {
+	  0%, 100% {
+		-ms-transform: scale(1);
+		-webkit-transform: scale(1);
+		transform: scale(1);
+      }
+      50% {
+        -ms-transform: scale(1.7);
+		-webkit-transform: scale(1.7);
+		transform: scale(1.7);
+      }
+	}
+
+	.move3 {
+	  animation: mymove3 1.4s infinite linear;
+	}
+
+	@keyframes mymove3 {
+	  0%, 75%, 100% {
+	  	opacity: 0;
+      }
+      50% {
+      	opacity: 1;
+      }
+	}
+
+	.move4 {
+	  animation: mymove4 1s infinite linear;
+	}
+
+	@keyframes mymove4 {
+	  0%, 75%, 100% {
+		-ms-transform: scaleY(1);
+		-webkit-transform: scaleY(1);
+		transform: scaleY(1);
+		border-radius: 50%;
+      }
+      35% {
+        -ms-transform: scaleY(3);
+		-webkit-transform: scaleY(3);
+		transform: scaleY(3);
+		border-radius: 0px;
+      }
+	}
+
+	.move5 {
+	  animation: mymove5 1.2s infinite linear;
+	}
+
+	@keyframes mymove5 {
+	  0%, 50%, 100% {
+		-ms-transform: scale(1);
+		-webkit-transform: scale(1);
+		transform: scale(1);
+      }
+      25% {
+        -ms-transform: scale(0);
+		-webkit-transform: scale(0);
+		transform: scale(0);
+      }
+	}
+</style>
+
+<body>
+
+	<div class="loading">
+		<div class="loading-wrap">
+			<div class="dots-wrap">
+				<span class="dot"></span>
+				<span class="dot"></span>
+				<span class="dot"></span>
+			</div>
+		</div>
+
+		<div class="loading-wrap">
+			<div class="dots-wrap">
+				<span class="dot-2"></span>
+				<span class="dot-2"></span>
+				<span class="dot-2"></span>
+			</div>
+		</div>
+
+		<div class="loading-wrap">
+			<div class="dots-wrap">
+				<span class="dot-3"></span>
+				<span class="dot-3"></span>
+				<span class="dot-3"></span>
+			</div>
+		</div>
+
+		<div class="loading-wrap">
+			<div class="dots-wrap">
+				<span class="dot-4"></span>
+				<span class="dot-4"></span>
+				<span class="dot-4"></span>
+			</div>
+		</div>
+
+		<div class="loading-wrap">
+			<div class="dots-wrap">
+				<span class="dot-5"></span>
+				<span class="dot-5"></span>
+				<span class="dot-5"></span>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		$.each($(".dot"), function(index, element){
+			$(element).delay(150*index).queue(function(next) {
+			  $(element).addClass("move");
+			  next();
+			});
+		});
+
+		$.each($(".dot-2"), function(index, element){
+			$(element).delay(150*index).queue(function(next) {
+			  $(element).addClass("move2");
+			  next();
+			});
+		});
+
+		$.each($(".dot-3"), function(index, element){
+			$(element).delay(150*index).queue(function(next) {
+			  $(element).addClass("move3");
+			  next();
+			});
+		});
+
+		$.each($(".dot-4"), function(index, element){
+			$(element).delay(150*index).queue(function(next) {
+			  $(element).addClass("move4");
+			  next();
+			});
+		});
+
+		$.each($(".dot-5"), function(index, element){
+			$(element).delay(150*index).queue(function(next) {
+			  $(element).addClass("move5");
+			  next();
+			});
+		});
+	</script>
+
+</body>
